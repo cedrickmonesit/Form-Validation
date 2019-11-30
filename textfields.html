@@ -1,0 +1,29 @@
+<html>
+<head>
+    <title>Form Validation Textfields</title>
+    <script>
+        function validate(){
+           var email = document.myForm.email.value;
+           var password = document.myForm.password.value;
+            if(email==""||email.length==0){
+                alert("Email is mandatory");
+                return false;
+            }else if(password==""){
+                aler("Password is mandatory");
+                return false;
+            }else{
+                alert("Validation successful");
+                return true;
+            }
+        }
+    </script>
+</head>
+<body>
+    <h3>User Registration:</h3>
+    <form name="myForm" action="registration.jsp" onSubmit="return validate()">
+        Email:<input type="text" name="email"/>
+        Password:<input type="password" name="password"/>
+        <input type="submit" value="Register"/>
+    </form>
+</body>
+</html>
