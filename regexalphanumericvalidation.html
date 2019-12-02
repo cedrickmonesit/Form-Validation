@@ -1,0 +1,29 @@
+<html>
+<head>
+    <title>Regular Expression Alpha Numeric Validation</title>
+    <script>
+        function validate(){
+            var pattern = /^[A-Za-z0-9\s]+$/; /* + means at least 1 of these characters * means none of the characters or any number. $ just ends the regular expression */
+            var address = document.myForm.address.value;
+            var result = pattern.test(address);
+            if(result){
+                alert("Validation Successful");
+            }else{
+                document.getElementById("err").innerHTML = "Error: Please enter alphnumeric address only.";
+                document.myForm.address.focus();
+                return false;
+            }
+            
+        }
+    </script>
+</head>
+<body>
+    <h3>Address:</h3>
+    <form name="myForm" action="address.jsp" onSubmit="return validate()">
+        <input type="text" name="address"/>Enter Address<br/>
+        <b id="err"></b>
+        <input type="submit" value="Submit"/>
+    </form>
+        
+</body>
+</html>

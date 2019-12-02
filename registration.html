@@ -1,0 +1,39 @@
+<html>
+<head>
+    <title>Registration</title>
+    <script>
+        function validate(){
+            var emailPattern = /^([a-zA-Z0-9_\-\.]+)@([a-zA-Z0-9_\-\.]+)\.([a-zA-Z]{2,5})$/;
+            var pwPattern = /^(((?=.*[a-z])(?=.*[A-Z]))|((?=.*[a-z])(?=.*[0-9]))|((?=.*[A-Z])(?=.*[0-9])))(?=.{6,})/;
+            var numPattern = /^\D?(\d{3})\D?\D?(\d{3})\D?(\d{4})$/;
+            var email = document.registrationForm.email.value;
+            var password = document.registrationForm.password.value;
+            var mobile = document.registrationForm.phoneNumber.value;
+            var validEmail = emailPattern.test(email);
+            var validPassword = pwPattern.test(password);
+            var validMobile = numPattern.test(mobile);
+            if(validEmail && validPassword && validMobile){
+                alert("Validation Successful!");
+            }else{
+                alert("Validation Failed");
+                document.registrationForm.email.focus();
+                document.registrationForm.password.focus();
+                document.registrationForm.phoneNumber.focus();
+                return false;
+            }
+        }
+    </script>
+</head>
+<body>
+    <h3>Registration</h3>
+    <form name="registrationForm" action="register.jsp" onSubmit="return validate()">
+        Email:<input type="text" name="email"/><br/>
+        <b id="email"></b>
+        Password:<input type="password" name="password"/><br/>
+        <b id="password"></b>
+        Phone Number:<input type="text" name="phoneNumber"/><br/>
+        <b id="phone"></b>
+        <input type="submit" value="Submit"/>
+    </form>
+</body>
+</html>

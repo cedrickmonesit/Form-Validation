@@ -1,0 +1,25 @@
+<html>
+<head>
+    <title>Regular Expression Validation</title>
+    <script>
+        function validate(){
+            var pattern = /^[A-Za-z]+$/;
+            var username = document.formRegister.username;
+            var result = pattern.test(username); /* this will return true if it matches var pattern if not it will return false */
+            if(result){
+                alert("Validation Succesful!");
+            }else{
+                alert("Please enter a valid username!");
+                return false;
+            }
+        }
+    </script>
+</head>
+<body>
+    <h3>User Registration</h3>
+    <form name="formRegister" action="registration.jsp" onSubmit="return validate()">
+        <input type="text" name="username"/>Username<br/>
+        <input type="submit" value="Submit"/>
+    </form>
+</body>
+</html>

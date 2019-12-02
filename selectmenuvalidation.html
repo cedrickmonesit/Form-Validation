@@ -1,0 +1,33 @@
+<html>
+<head>
+    <title>Form Validation Dropdowns</title>
+    <script>
+        function validate(){
+            var selection = document.myForm.color.value;
+            if(selection == ""){
+                alert("Please choose a color");
+                document.myForm.color.focus();
+                return false;
+            }else{
+                alert("Validation Successful!");
+                document.myForm.color.focus();
+                return true;
+            }
+        }
+
+    </script>
+</head>
+<body>
+    <h3>Select a Color</h3>
+    <form name="myForm" action="dropdown.php" onSubmit="return validate()"> <!-- registration.jsp is a file on a server to post data or store user data -->
+        <select name="color">
+            <option value=""></option>
+            <option value="Red">Red</option>
+            <option value="Blue">Blue</option>
+            <option value="Yellow">Yellow</option>
+            <option value="Green">Green</option>
+        </select>
+        <input type="submit" value="Submit"/>
+    </form>
+</body>
+</html>

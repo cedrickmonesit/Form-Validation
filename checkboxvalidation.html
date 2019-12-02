@@ -1,0 +1,37 @@
+<html>
+<head>
+    <title>Form Validation Dropdowns</title>
+    <script>
+        function validate(){
+            var valid = false;
+            
+            if(document.getElementById("html").checked){
+                valid = true;
+            }else if(document.getElementById("javascript").checked){
+                valid = true;
+            }else if(document.getElementById("java").checked){
+                valid = true;
+            }else if(document.getElementById("css").checked){
+                valid = true;
+            }
+            if(valid){
+                alert("Validation Successfil");
+            }else{
+                alert("Please select at least one technology");
+                return false;
+            }
+        }
+
+    </script>
+</head>
+<body>
+    <h3>Select a Technology</h3>
+    <form name="myForm" action="checkbox.php" onSubmit="return validate()"> <!-- registration.jsp is a file on a server to post data or store user data -->
+        <input id="html" type="checkbox" value="HTML"/>I code HTML.<br/>
+        <input id="javascript" type="checkbox" value="Javascript" />I code Javascript.<br/>
+        <input id="java" type="checkbox" value="Java" />I code Java.<br/>
+        <input id="css" type="checkbox" value="CSS" />I code CSS.<br/>
+        <input type="submit" value="Submit" />
+    </form>
+</body>
+</html>
